@@ -1,0 +1,373 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+header {
+    background-color: #C83701;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #dcdedc;
+    color: #696969;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Search Bar and Button Styling */
+.search-container {
+    display: flex; /* Align items in a row */
+    flex-direction: row; /* Change flex direction to row */
+    align-items: center; /* Align items vertically in the center */
+    margin: 20px auto; /* Center the container and add margin */
+    max-width: 600px; /* Optional: Set a max width for the container */
+    position: relative; /* Establishes a positioning context for the suggestions */
+}
+
+#search-bar {
+    flex: 1; /* Allow search bar to take available space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px; /* Add space between the search bar and button */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #EC9D04;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 0; /* Remove top margin to align it properly */
+}
+
+button:hover {
+    background-color: #E28401;
+}
+
+
+/* Suggestions Styling */
+#suggestions {
+    max-width: 100%;
+    margin: 0 auto; /* Center suggestions below the search bar */
+    position: absolute; /* Position suggestions absolutely relative to the parent */
+    top: 100%; /* Place suggestions directly below the search container */
+    left: 0; /* Align suggestions with the left edge of the container */
+    background-color: #fff; /* Background color for suggestions */
+    border: 1px solid #ccc; /* Border for better visibility */
+    border-radius: 4px; /* Rounded corners */
+    z-index: 1000; /* Ensure suggestions appear above other content */
+    max-height: 300px; /* Limit height and make suggestions scrollable if needed */
+    overflow-y: auto; /* Scroll if the content exceeds the max height */
+    padding: 0;
+}
+
+#suggestions ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#suggestions li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#suggestions li:hover {
+    background-color: #f0f0f0;
+    
+}
+
+/* Selected Ingredients Styling */
+#selected-ingredients {
+    display: flex; /* Use flexbox to align items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center items vertically within their line */
+    gap: 10px; /* Space between selected ingredients */
+    width: 100%;
+    margin-bottom: 10px; /* Space between selected ingredients and search bar */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for individual selected ingredient items */
+.selected-ingredient {
+    padding: 5px 15px; /* Add padding to create space inside the button */
+    border: 2px solid #333; /* Darker border color for the outline */
+    border-radius: 20px; /* Round the corners */
+    background-color: #d3d3d3; /* Gray background color similar to the image */
+    font-size: 16px; /* Slightly increase font size */
+    color: #333; /* Text color matching the border */
+    display: flex; /* Use flexbox to align the content inside */
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Distribute space between text and close icon */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    min-width: 60px; /* Ensure minimum width for proper display */
+    margin: 5px; /* Space between multiple selected ingredients */
+}
+
+/* Styling for the "x" or close button within the selected ingredient */
+.selected-ingredient .close-btn {
+    margin-left: 10px; /* Space between the ingredient text and the close button */
+    font-weight: bold; /* Make the "x" more prominent */
+    cursor: pointer; /* Show pointer cursor on hover */
+    color: #333; /* Match the color of the text */
+}
+
+/* Recipe Card Styling */
+.recipe-card {
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Slightly more rounded corners */
+    margin: 1rem;
+    padding: 1.5rem; /* Increased padding for more space inside the card */
+    text-align: center;
+    background-color: #ffffff; /* Clean white background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.recipe-card img {
+    max-width: 100%; /* Adjusted image size for better balance */
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow around the image */
+}
+
+.recipe-card h4 {
+    margin: 0.5rem 0 0.5rem 0;
+    font-size: 1.75rem; /* Larger font size for the title */
+    color: #333333; /* Darker color for better readability */
+    font-weight: bold; /* Bold title */
+}
+
+.recipe-card p {
+    font-size: 1.0rem;
+    color: #666666;
+    margin: 0.5rem 0 0.5rem 0; /* More space between the text elements */
+    line-height: 1.5; /* Better readability with increased line height */
+}
+
+.recipe-card .ingredients-match {
+    font-size: 1.5rem;
+    color: #007BFF;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.recipe-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem; /* Increased padding for a more prominent button */
+    color: #ffffff;
+    background-color: #F0B51D;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition on hover */
+}
+
+.recipe-card a:hover {
+    background-color: #EC9D04;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add shadow to the button on hover */
+    text-decoration: underline;
+}
+
+/* Search Results Container */
+.search-results {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the cards */
+    gap: 1rem; /* Space between cards */
+}
+
+.search-results h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem; /* Larger title for the search results section */
+    color: #333333;
+}
+
+/* Featured Recipes Styling */
+.featured-recipes {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap; /* Ensure cards wrap properly on smaller screens */
+    justify-content: center; /* Center the cards */
+    gap: 2rem; /* Space between cards */
+}
+
+.featured-recipes h2 {
+    text-align: center;
+    margin-bottom: 0rem;
+    font-size: 2.5rem; /* Larger section title */
+    color: #333333;
+}
+
+.featured-recipes .recipe-card {
+    width: 22%; /* Wider cards for more content */
+}
+
+/* Recipe Detail Styling */
+.recipe-detail {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    text-align: center;
+}
+
+.recipe-detail h2 {
+    font-size: 2.5rem; /* Larger title for the recipe */
+    color: #333333; /* Darker color for the title */
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.recipe-detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Slightly rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow around the image */
+    margin-bottom: 1.5rem; /* Space below the image */
+}
+
+.recipe-detail h3 {
+    font-size: 1.75rem; /* Size of sub-headings */
+    color: #B00005; /* A pleasant color to distinguish sub-headings */
+    margin: 1.5rem 0 1rem 0;
+    text-align: left; /* Align sub-headings to the left */
+    font-weight: bold;
+}
+
+.recipe-detail ul {
+    list-style-type: disc;
+    padding-left: 1.5rem; /* Indentation for the list */
+    text-align: left; /* Align list items to the left */
+    margin-bottom: 2rem;
+}
+
+.recipe-detail ul li {
+    font-size: 1.1rem; /* Slightly larger font for readability */
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+.recipe-detail p {
+    font-size: 1.2rem; /* Larger font size for instructions */
+    line-height: 1.6; /* Increase line height for readability */
+    color: #555555; /* Softer color for body text */
+    text-align: left; /* Align text to the left */
+    margin-bottom: 2rem;
+}
+
+.recipe-detail p:last-child {
+    margin-bottom: 0; /* Remove margin on the last paragraph */
+}
+
+@media (max-width: 768px) {
+    .recipe-detail {
+        padding: 1rem;
+    }
+
+    .recipe-detail h2 {
+        font-size: 2rem;
+    }
+
+    .recipe-detail h3 {
+        font-size: 1.5rem;
+    }
+
+    .recipe-detail p, .recipe-detail ul li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe-detail {
+        padding: 0.5rem;
+    }
+
+    .recipe-detail h2 {
+        font-size: 1.75rem;
+    }
+
+    .recipe-detail h3 {
+        font-size: 1.25rem;
+    }
+
+    .recipe-detail p, .recipe-detail ul li {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .featured-recipes .recipe-card {
+        width: 45%; /* Adjust card width for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-recipes .recipe-card {
+        width: 95%; /* Full-width cards on small screens */
+    }
+}
